@@ -4,6 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageOutputPath>..\..\Releases\</PackageOutputPath>
+    <Version>1.0.0</Version>
   </PropertyGroup>
 
 </Project>
