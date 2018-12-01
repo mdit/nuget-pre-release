@@ -1,13 +1,27 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿
+
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <!--General Package Generation-->
+  <PropertyGroup>
+    <AssemblyVersion>1.0.0</AssemblyVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageOutputPath>..\..\Releases\</PackageOutputPath>
-    <AssemblyVersion>1.0.0</AssemblyVersion>
+    <Version>$(AssemblyVersion)</Version>
+  </PropertyGroup>
+  
+  <!--PreRelease Configuration-->
+  <PropertyGroup Condition="'$(PreRelease)' != 'false'">
     <BuildTimeStamp>$([System.DateTime]::Now.ToString('yyyyMMddHHmm'))</BuildTimeStamp>
-    <PreRelease Condition="'$(GeneratePreReleasePackages)' != 'false'">-pre$(BuildTimeStamp)</PreRelease>
-    <Version>$(AssemblyVersion)$(PreRelease)</Version>
+    <PreReleaseSuffix>-pre$(BuildTimeStamp)</PreReleaseSuffix>
+    <Version>$(AssemblyVersion)$(PreReleaseSuffix)</Version>
+    <DebugType>embedded</DebugType>
+    <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
 
 </Project>
+
