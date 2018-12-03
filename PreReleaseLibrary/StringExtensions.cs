@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Library
+namespace PreReleaseLibrary
 {
     public static class StringExtensions
     {
